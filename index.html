@@ -6,589 +6,419 @@
   <title>Briarcliff Collective</title>
   <meta name="description" content="Turn ideas into impact through strategic execution and operational excellence." />
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#0b0f0d;
-      --surface:#0f1612;
-      --surface2:#101b15;
-      --text:#e9efe9;
-      --muted:#b9c6bb;
-      --line:rgba(233,239,233,.14);
-      --accent:#2fcf8f; /* emerald-ish */
-      --accent2:#93ffd2;
-      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      /* Layout */
       --radius: 18px;
       --max: 1100px;
+
+      /* Backgrounds */
+      --bg:#eef4f1;            /* sage background */
+      --surface:#ffffff;       /* cards */
+      --surface2:#f3f7f5;
+
+      /* Text */
+      --text:#1f2d27;          /* deep green */
+      --muted:#5f736b;
+
+      /* Accents */
+      --accent:#5fb3a2;        /* mint */
+      --accent2:#9fd6c7;
+
+      /* Borders & shadows */
+      --line:rgba(31,45,39,.12);
+      --shadow: 0 18px 40px rgba(31,45,39,.08);
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:
-        radial-gradient(1000px 600px at 20% -10%, rgba(47,207,143,.22), transparent 60%),
-        radial-gradient(900px 500px at 90% 20%, rgba(147,255,210,.12), transparent 55%),
+        radial-gradient(1200px 600px at 10% -10%, rgba(159,214,199,.35), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(95,179,162,.25), transparent 55%),
         var(--bg);
       color:var(--text);
       line-height:1.55;
     }
 
-    a{color:inherit;text-decoration:none}
+    h1, h2, h3{
+  font-family: 'Fraunces', serif;
+  letter-spacing: -0.02em;
+}
+
+h1{ font-weight: 600; }
+h2{ font-weight: 500; }
+h3{ font-weight: 400; }
+
+
+    a{text-decoration:none;color:inherit}
     .container{max-width:var(--max);margin:0 auto;padding:0 20px}
 
     /* Header */
     header{
-      position:sticky;top:0;z-index:50;
+      position:sticky;top:0;z-index:10;
+      background:rgba(238,244,241,.85);
       backdrop-filter: blur(10px);
-      background: rgba(11,15,13,.72);
       border-bottom:1px solid var(--line);
     }
+
     .nav{
-      display:flex;align-items:center;justify-content:space-between;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
       padding:14px 0;
       gap:16px;
     }
+
     .brand{
-      display:flex;align-items:center;gap:10px;
-      font-weight:700; letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
     }
+
     .dot{
-      width:10px;height:10px;border-radius:999px;background:var(--accent);
-      box-shadow:0 0 0 6px rgba(47,207,143,.12);
+      width:10px;height:10px;
+      border-radius:50%;
+      background:var(--accent);
     }
-    .navlinks{display:flex;gap:18px;align-items:center}
-    .navlinks a{color:var(--muted);font-weight:600;font-size:14px}
+
+    .navlinks{
+      display:flex;
+      gap:18px;
+    }
+
+    .navlinks a{
+      font-weight:600;
+      color:var(--muted);
+    }
+
     .navlinks a:hover{color:var(--text)}
+
     .cta{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 14px;border-radius:999px;
-      background: linear-gradient(90deg, rgba(47,207,143,.95), rgba(147,255,210,.9));
-      color:#052012;
-      font-weight:800;
-      border:0;
-      box-shadow: 0 12px 30px rgba(47,207,143,.18);
-      white-space:nowrap;
-    }
-
-    /* Mobile menu */
-    .menuBtn{
-      display:none;
-      padding:10px 12px;border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color:var(--text);
+      padding:10px 16px;
+      border-radius:999px;
+      background:#93cda4;
+      color:#0e2b22;
       font-weight:700;
-    }
-    .mobilePanel{
-      display:none;
-      padding:10px 0 18px;
-    }
-    .mobilePanel a{
-      display:block;
-      padding:10px 0;
-      color:var(--muted);
-      font-weight:700;
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .mobilePanel a:last-child{border-bottom:0}
-
-    /* Hero */
-    .hero{
-      padding:68px 0 36px;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:28px;
-      align-items:stretch;
-    }
-    .card{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .heroCard{padding:28px}
-    .kicker{
-      display:inline-flex;align-items:center;gap:10px;
-      color:var(--muted);
-      font-weight:800;
-      letter-spacing:.5px;
-      text-transform:uppercase;
-      font-size:12px;
-    }
-    .kicker span{
-      width:34px;height:1px;background: rgba(233,239,233,.24);
+      border:none;
+      box-shadow:0 8px 24px rgba(147,205,164,.45);
       display:inline-block;
     }
-    h1{
-      font-size: clamp(30px, 4vw, 46px);
-      line-height:1.12;
-      margin:14px 0 10px;
-      letter-spacing:-.5px;
+
+    .cta:hover{
+      background:#84c397;
     }
+
+    /* Hero */
+    .hero{padding:64px 0}
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:28px;
+    }
+
+    .card{
+      background:var(--surface);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--line);
+    }
+
+    h1{
+      font-size:clamp(32px,4vw,46px);
+      line-height:1.1;
+      margin:12px 0;
+    }
+
     .lead{
       color:var(--muted);
-      font-size:16px;
-      margin:0 0 18px;
       max-width:60ch;
     }
-    .heroActions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .ghost{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 14px;border-radius:999px;
-      border:1px solid var(--line);
-      color:var(--text);
-      background: rgba(255,255,255,.03);
-      font-weight:800;
+
+    .heroActions{
+      margin-top:20px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
     }
-    .ghost:hover{background: rgba(255,255,255,.06)}
+
+    .ghost{
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:transparent;
+      font-weight:600;
+      color:var(--text);
+      display:inline-block;
+    }
 
     .imgCard{
-      position:relative;
-      min-height: 280px;
       background:
-        linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.55)),
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.35)),
         url("assets/hero.jpg") center/cover no-repeat;
-    }
-    .imgOverlay{
-      position:absolute;inset:0;
-      padding:18px;
-      display:flex;flex-direction:column;justify-content:flex-end;
-      gap:8px;
-    }
-    .imgOverlay .tag{
-      display:inline-flex;
-      align-self:flex-start;
-      padding:7px 10px;border-radius:999px;
-      background: rgba(15,22,18,.62);
-      border:1px solid rgba(233,239,233,.16);
-      font-weight:800;
-      font-size:12px;
-      color:var(--accent2);
-    }
-    .imgOverlay .small{
-      color:rgba(233,239,233,.85);
-      font-weight:700;
+      min-height:300px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
     }
 
     /* Sections */
-    section{padding:44px 0}
-    .sectionHead{
-      display:flex;align-items:flex-end;justify-content:space-between;
-      gap:18px;margin-bottom:16px;
-    }
+    section{padding:56px 0}
+
     h2{
-      margin:0;
-      font-size: clamp(22px, 2.4vw, 30px);
-      letter-spacing:-.3px;
-    }
-    .sub{
-      margin:0;
-      color:var(--muted);
-      max-width:70ch;
+      font-size:clamp(24px,3vw,32px);
+      margin-bottom:8px;
     }
 
-    .twoCol{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
-    }
+    .sub{color:var(--muted);max-width:65ch}
 
+    /* About */
     .aboutWrap{
       display:grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap:18px;
-      align-items:stretch;
+      grid-template-columns:.9fr 1.1fr;
+      gap:24px;
+      margin-top:24px;
     }
+
     .aboutImg{
       background:
-        linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.5)),
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.35)),
         url("assets/erin.jpg") center/cover no-repeat;
-      min-height: 360px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      box-shadow: var(--shadow);
+      border-radius:var(--radius);
+      min-height:360px;
+      box-shadow:var(--shadow);
     }
-    .aboutText{padding:22px}
-    .aboutText p{margin:0 0 12px;color:var(--muted)}
-    .aboutText p strong{color:var(--text)}
+
     .bullets{
-      margin:14px 0 0;padding:0;list-style:none;
-      display:grid;gap:10px;
+      list-style:none;
+      padding:0;
+      margin-top:16px;
+      display:grid;
+      gap:12px;
     }
+
     .bullets li{
-      display:flex;gap:10px;align-items:flex-start;
-      padding:12px 12px;border-radius:14px;
-      border:1px solid rgba(233,239,233,.10);
-      background: rgba(255,255,255,.02);
+      display:flex;
+      gap:10px;
+      padding:12px;
+      border-radius:12px;
+      background:var(--surface2);
+      border:1px solid var(--line);
       color:var(--muted);
+      font-weight:500;
     }
+
     .check{
-      width:18px;height:18px;border-radius:6px;
-      background: rgba(47,207,143,.18);
-      border:1px solid rgba(47,207,143,.35);
+      width:18px;height:18px;
+      border-radius:6px;
+      background:rgba(147,205,164,.6);
       flex:0 0 18px;
       margin-top:2px;
     }
 
+    /* Services */
     .serviceGrid{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:24px;
     }
+
     .service{
-      padding:18px;
-      border:1px solid rgba(233,239,233,.12);
+      background:var(--surface);
       border-radius:var(--radius);
-      background: linear-gradient(180deg, rgba(16,27,21,.85), rgba(16,27,21,.45));
+      padding:20px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--line);
     }
-    .service h3{margin:0 0 10px;font-size:18px}
-    .service ul{margin:0;padding-left:18px;color:var(--muted)}
-    .service li{margin:6px 0}
+
+    .service h3{margin-top:0}
+
+    .service ul{
+      padding-left:18px;
+      color:var(--muted);
+    }
 
     /* Contact */
     .contactGrid{
       display:grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap:16px;
-      align-items:stretch;
+      grid-template-columns:.9fr 1.1fr;
+      gap:20px;
+      margin-top:24px;
     }
-    .contactCard{padding:18px}
-    .contactCard p{margin:0 0 10px;color:var(--muted)}
-    .contactRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px}
-    .pill{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 12px;border-radius:999px;
-      border:1px solid rgba(233,239,233,.14);
-      background: rgba(255,255,255,.02);
-      color:var(--text);
-      font-weight:800;
-      font-size:14px;
-    }
-    .pill small{color:var(--muted);font-weight:700}
+
     form{
-      display:grid;gap:10px;
-      padding:18px;
-      border-radius:var(--radius);
-      border:1px solid rgba(233,239,233,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      display:grid;
+      gap:12px;
     }
-    label{font-weight:800;font-size:13px;color:rgba(233,239,233,.9)}
+
     input, textarea{
       width:100%;
-      padding:12px 12px;
+      padding:12px;
       border-radius:12px;
-      border:1px solid rgba(233,239,233,.16);
-      background: rgba(0,0,0,.18);
-      color:var(--text);
-      outline:none;
+      border:1px solid var(--line);
+      font-family:inherit;
     }
-    input:focus, textarea:focus{
-      border-color: rgba(47,207,143,.7);
-      box-shadow: 0 0 0 4px rgba(47,207,143,.12);
-    }
-    textarea{min-height:120px;resize:vertical}
-    .formRow{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-    }
-    .fineprint{color:var(--muted);font-size:12px;margin-top:6px}
+
+    textarea{min-height:120px}
 
     footer{
-      padding:26px 0 40px;
-      border-top:1px solid rgba(233,239,233,.10);
+      padding:32px 0;
+      border-top:1px solid var(--line);
       color:var(--muted);
+      font-size:14px;
     }
 
     /* Responsive */
-    @media (max-width: 900px){
-      .grid{grid-template-columns:1fr}
-      .serviceGrid{grid-template-columns:1fr}
-      .twoCol{grid-template-columns:1fr}
-      .aboutWrap{grid-template-columns:1fr}
-      .contactGrid{grid-template-columns:1fr}
-      .imgCard{min-height:220px}
-    }
-    @media (max-width: 720px){
-      .navlinks{display:none}
-      .menuBtn{display:inline-flex}
-      .mobilePanel.show{display:block}
-      .formRow{grid-template-columns:1fr}
+    @media(max-width:900px){
+      .grid,.aboutWrap,.serviceGrid,.contactGrid{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="#home" aria-label="Briarcliff Collective home">
-          <span class="dot" aria-hidden="true"></span>
-          <span>Briarcliff Collective</span>
-        </a>
 
-        <nav class="navlinks" aria-label="Primary navigation">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact Us</a>
-        </nav>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="dot"></div>
+      Briarcliff Collective
+    </div>
+    <nav class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="cta" href="#contact">Book a Consult</a>
+  </div>
+</header>
 
-        <button class="menuBtn" id="menuBtn" aria-expanded="false" aria-controls="mobilePanel">
-          Menu
-        </button>
-
+<main id="home" class="hero">
+  <div class="container grid">
+    <div class="card">
+      <h1>Empower Your Business with Briarcliff Collective</h1>
+      <p class="lead">
+        Turn ideas into impact through strategic execution and operational excellence.
+        We help businesses grow with clarity, structure, and momentum.
+      </p>
+      <div class="heroActions">
+        <a class="ghost" href="#about">Learn More</a>
         <a class="cta" href="#contact">Book a Consult</a>
       </div>
+    </div>
+    <div class="imgCard"></div>
+  </div>
+</main>
 
-      <div class="mobilePanel" id="mobilePanel" aria-label="Mobile navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact Us</a>
+<section id="about">
+  <div class="container">
+    <h2>About</h2>
+    <p class="sub">Who you’re working with.</p>
+
+    <div class="aboutWrap">
+      <div class="aboutImg"></div>
+      <div class="card">
+        <p>
+          Hi, I’m Erin — founder of Briarcliff Collective. I’m a strategy and operations
+          consultant with a background in analytics, execution, and building systems
+          that actually work in practice.
+        </p>
+        <p>
+          I’ve led initiatives across retention, operations, and product launches,
+          always focused on turning strategy into action.
+        </p>
+
+        <ul class="bullets">
+          <li><span class="check"></span>Clear, actionable strategy</li>
+          <li><span class="check"></span>Hands-on operational support</li>
+          <li><span class="check"></span>Measurable, sustainable outcomes</li>
+        </ul>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main id="home" class="hero">
-    <div class="container">
-      <div class="grid">
-        <div class="card heroCard">
-          <div class="kicker"><span></span> Strategy • Ops • Launch</div>
-          <h1>Empower Your Business with Briarcliff Collective</h1>
-          <p class="lead">
-            Turn ideas into impact through strategic execution and operational excellence.
-            We bring sharp thinking and hands-on support to help businesses thrive at every stage of their journey.
-          </p>
+<section id="services">
+  <div class="container">
+    <h2>Services</h2>
+    <p class="sub">How we work together.</p>
 
-          <div class="twoCol">
-            <div class="card" style="padding:16px;background:rgba(255,255,255,.02);border:1px solid rgba(233,239,233,.10);box-shadow:none">
-              <h3 style="margin:0 0 6px">Tailored Strategies for Success</h3>
-              <p style="margin:0;color:var(--muted)">
-                Briarcliff Collective is a consultancy focused on helping businesses grow, launch products,
-                and optimize operations. Our team crafts tailored solutions aligned to your core objectives.
-              </p>
-              <div class="heroActions">
-                <a class="ghost" href="#about">Read More</a>
-              </div>
-            </div>
+    <div class="serviceGrid">
+      <div class="service">
+        <h3>Strategy Development</h3>
+        <ul>
+          <li>Market research</li>
+          <li>Revenue growth</li>
+          <li>Long-term planning</li>
+        </ul>
+      </div>
 
-            <div class="card" style="padding:16px;background:rgba(255,255,255,.02);border:1px solid rgba(233,239,233,.10);box-shadow:none">
-              <h3 style="margin:0 0 6px">Optimize Your Operations</h3>
-              <p style="margin:0;color:var(--muted)">
-                We bring analysis, research, and ongoing support to help you move faster with clarity—
-                and build systems that scale with you.
-              </p>
-              <div class="heroActions">
-                <a class="cta" href="#contact">Book Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="service">
+        <h3>Operational Improvement</h3>
+        <ul>
+          <li>Process optimization</li>
+          <li>KPI audits</li>
+          <li>Change management</li>
+        </ul>
+      </div>
 
-        <aside class="card imgCard" aria-label="Hero image">
-          <div class="imgOverlay">
-            <div class="tag">Strategic execution</div>
-            <div class="small">Practical, transparent, measurable impact.</div>
-          </div>
-        </aside>
+      <div class="service">
+        <h3>Product Launch</h3>
+        <ul>
+          <li>Go-to-market strategy</li>
+          <li>Project management</li>
+          <li>Success tracking</li>
+        </ul>
       </div>
     </div>
-  </main>
+  </div>
+</section>
 
-  <section id="about">
-    <div class="container">
-      <div class="sectionHead">
-        <div>
-          <h2>About</h2>
-          <p class="sub">A little background on who you’re working with.</p>
-        </div>
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <p class="sub">Start with a free 30-minute consultation.</p>
+
+    <div class="contactGrid">
+      <div class="card">
+        <p><strong>Email</strong></p>
+        <p>BriarcliffCollective@outlook.com</p>
       </div>
 
-      <div class="aboutWrap">
-        <div class="aboutImg" role="img" aria-label="Founder photo"></div>
-
-        <div class="card aboutText">
-          <p>
-            Hello, I'm <strong>Erin</strong>, Founder of Briarcliff Collective. I am a strategy and operations consultant with
-            a strong foundation in analytics, organizational planning, and execution. My work is grounded in data-driven
-            decision making, collaborative problem solving, and a commitment to building strategies that are scalable,
-            thoughtful, and people-focused.
-          </p>
-          <p>
-            I’ve led initiatives that improve customer retention, streamline operations, and uncover new growth opportunities.
-            Whether it's building and launching new products, redesigning customer journeys, or piloting emerging tools,
-            I focus on making sure strategy and execution work hand in hand.
-          </p>
-          <p>
-            Earlier in my career, I worked as a consultant focusing on research, analytics, and turning data insights into
-            actionable strategies across marketing, communications, and ESG initiatives. My background spans public relations,
-            project management, and team leadership.
-          </p>
-          <p>
-            I earned my degree in Business with a focus on Strategy and Innovation, along with a minor in Economics.
-            As a former college athlete, I bring structure, teamwork, and follow-through into every client relationship.
-          </p>
-
-          <ul class="bullets">
-            <li><span class="check" aria-hidden="true"></span><span>Clear scope, simple systems, and a plan you can actually execute.</span></li>
-            <li><span class="check" aria-hidden="true"></span><span>Hands-on support that makes strategy feel practical—fast.</span></li>
-            <li><span class="check" aria-hidden="true"></span><span>Measurable outcomes and honest communication throughout.</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="container">
-      <div class="sectionHead">
-        <div>
-          <h2>Our Services</h2>
-          <p class="sub">A few ways we support growth, clarity, and momentum.</p>
-        </div>
-      </div>
-
-      <div class="serviceGrid">
-        <div class="service">
-          <h3>Strategy Development</h3>
-          <ul>
-            <li>Revenue Expansion</li>
-            <li>Market Research</li>
-            <li>Long-term planning</li>
-            <li>Market Entry</li>
-            <li>Strategy Implementation</li>
-          </ul>
-        </div>
-
-        <div class="service">
-          <h3>Operational Improvements</h3>
-          <ul>
-            <li>Operational KPI Audit</li>
-            <li>Process Mapping</li>
-            <li>Quality Assurance</li>
-            <li>Resource Utilization</li>
-            <li>Change Management</li>
-          </ul>
-        </div>
-
-        <div class="service">
-          <h3>Product Launches</h3>
-          <ul>
-            <li>Go-to-Market Strategy</li>
-            <li>Project Management</li>
-            <li>Marketing Plan</li>
-            <li>Pilot Testing</li>
-            <li>Success Tracking</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <div class="sectionHead">
-        <div>
-          <h2>Contact Us</h2>
-          <p class="sub">Start your journey — reach out for a free 30 minute consultation.</p>
-        </div>
-      </div>
-
-      <div class="contactGrid">
-        <div class="card contactCard">
-          <p><strong>Start Your Journey</strong></p>
-          <p>Reach out to Briarcliff Collective for a free 30 minute consultation.</p>
-
-          <div class="contactRow">
-            <a class="pill" href="mailto:BriarcliffCollective@outlook.com" aria-label="Email Briarcliff Collective">
-              <span>✉️</span>
-              <span>BriarcliffCollective@outlook.com</span>
-            </a>
-
-            <a class="pill" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <span>in</span>
-              <span>LinkedIn</span>
-              <small>(update link)</small>
-            </a>
-          </div>
-
-          <p class="fineprint">
-            Hosting on GitHub Pages? You’ll need a form service (like Formspree) to receive submissions.
-          </p>
-        </div>
-
-        <!-- Contact Form (Formspree)
-             1) Create a Formspree form: https://formspree.io/
-             2) Replace the action URL below with your endpoint.
-        -->
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" aria-label="Contact form">
-          <div class="formRow">
-            <div>
-              <label for="firstName">First name *</label>
-              <input id="firstName" name="firstName" type="text" required />
-            </div>
-            <div>
-              <label for="lastName">Last name</label>
-              <input id="lastName" name="lastName" type="text" />
-            </div>
-          </div>
-
-          <div class="formRow">
-            <div>
-              <label for="email">Email *</label>
-              <input id="email" name="email" type="email" required />
-            </div>
-            <div>
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" />
-            </div>
-          </div>
-
-          <div>
-            <label for="message">Write a message</label>
-            <textarea id="message" name="message" placeholder="Tell me a bit about what you’re building…"></textarea>
-          </div>
-
-          <button class="cta" type="submit">Submit</button>
-          <div class="fineprint">
-            By submitting, you agree to be contacted about your inquiry.
-          </div>
+      <div class="card">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <textarea name="message" placeholder="Tell me about your project"></textarea>
+          <button class="cta" type="submit">Send Message</button>
         </form>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <div>© <span id="year"></span> Briarcliff Collective</div>
-      <div style="opacity:.9">Built as a lightweight static site (great for GitHub Pages).</div>
-    </div>
-  </footer>
+<footer>
+  <div class="container">
+    © <span id="year"></span> Briarcliff Collective
+  </div>
+</footer>
 
-  <script>
-    // Mobile menu toggle + close on click
-    const btn = document.getElementById("menuBtn");
-    const panel = document.getElementById("mobilePanel");
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-    btn?.addEventListener("click", () => {
-      const isOpen = panel.classList.toggle("show");
-      btn.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    panel?.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        panel.classList.remove("show");
-        btn.setAttribute("aria-expanded", "false");
-      });
-    });
-
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
