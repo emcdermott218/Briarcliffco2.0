@@ -190,22 +190,40 @@ h3{ font-weight: 400; }
 
     .sub{color:var(--muted);max-width:65ch}
 
-    /* About */
-    .aboutWrap{
-      display:grid;
-      grid-template-columns:.9fr 1.1fr;
-      gap:24px;
-      margin-top:8px;
-    }
-
     .aboutImg{
   background: url("assets/erin.jpg") center/cover no-repeat;
-  border-radius:var(--radius);
-  min-height:360px;
-  box-shadow:var(--shadow);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   filter: brightness(1.05) contrast(1.05) saturate(1.05);
+
+  width: 240px;          /* controls image size */
+  height: 320px;
+  float: left;
+  margin: 0 22px 14px 0; /* spacing between image + text */
+  .aboutFlow{
+  margin-top: 12px;
 }
 
+/* clears the float so the section height stays correct */
+.aboutFlow::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+
+.aboutCopy p{
+  margin-top: 0;
+  color: var(--muted);
+}
+
+/* mobile: stack */
+@media (max-width: 900px){
+  .aboutImg{
+    float: none;
+    width: 100%;
+    max-width: 360px;
+    height: 360px;
+    margin: 0 0 14px 0;
     }
 
     .bullets{
@@ -338,46 +356,42 @@ h3{ font-weight: 400; }
     <p class="sub">Who you’re working with.</p>
 
     <div class="aboutFlow">
-      <div class="aboutImg" aria-label="Photo of Erin"></div>
+  <div class="aboutImg" aria-label="Photo of Erin"></div>
 
-      <div class="aboutText">
-        <p>
-          Hello, I'm Erin, Founder of Briarcliff Collective. I am a strategy and operations consultant with a strong
-          foundation in analytics, organizational planning, and execution. My work is grounded in data-driven decision
-          making, collaborative problem solving, and a commitment to building strategies that are scalable, thoughtful,
-          and people-focused.
-        </p>
+  <div class="aboutCopy">
+    <p>
+      Hello, I'm Erin, Founder of Briarcliff Collective. I am a strategy and operations consultant with a strong
+      foundation in analytics, organizational planning, and execution. My work is grounded in data-driven decision
+      making, collaborative problem solving, and a commitment to building strategies that are scalable, thoughtful,
+      and people-focused.
+    </p>
 
-        <p>
-          I’ve led initiatives that improve customer retention, streamline operations, and uncover new growth opportunities.
-          Whether it's building and launching new products, redesigning customer journeys, or piloting emerging tools, I focus
-          on making sure strategy and execution work hand in hand. The result is real progress that supports long-term growth.
-        </p>
-      </div>
+    <p>
+      I’ve led initiatives that improve customer retention, streamline operations, and uncover new growth opportunities.
+      Whether it's building and launching new products, redesigning customer journeys, or piloting emerging tools, I focus
+      on making sure strategy and execution work hand in hand. The result is real progress that supports long-term growth.
+    </p>
 
-      <div class="aboutMore">
-        <p>
-          Earlier in my career, I worked as a consultant focusing on research, analytics, and turning data insights into
-          actionable strategies across marketing, communications, and ESG initiatives. My background spans public relations,
-          project management, and team leadership.
-        </p>
+    <p>
+      Earlier in my career, I worked as a consultant focusing on research, analytics, and turning data insights into
+      actionable strategies across marketing, communications, and ESG initiatives. My background spans public relations,
+      project management, and team leadership.
+    </p>
 
-        <p>
-          I earned my degree in Business with a focus on Strategy and Innovation, along with a minor in Economics. As a former
-          college athlete, I know the importance of structure, teamwork, and follow-through—and I bring those same qualities
-          into every client relationship. I like to keep things practical and transparent, always aiming to create real,
-          meaningful progress together.
-        </p>
+    <p>
+      I earned my degree in Business with a focus on Strategy and Innovation, along with a minor in Economics. As a former
+      college athlete, I know the importance of structure, teamwork, and follow-through—and I bring those same qualities
+      into every client relationship. I like to keep things practical and transparent, always aiming to create real,
+      meaningful progress together.
+    </p>
 
-        <ul class="bullets">
-          <li><span class="check"></span>Clear, actionable strategy</li>
-          <li><span class="check"></span>Hands-on operational support</li>
-          <li><span class="check"></span>Measurable, sustainable outcomes</li>
-        </ul>
-      </div>
-    </div>
+    <ul class="bullets">
+      <li><span class="check"></span>Clear, actionable strategy</li>
+      <li><span class="check"></span>Hands-on operational support</li>
+      <li><span class="check"></span>Measurable, sustainable outcomes</li>
+    </ul>
   </div>
-</section>
+</div>
 
 <section id="services">
   <div class="container">
