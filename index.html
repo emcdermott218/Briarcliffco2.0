@@ -188,7 +188,19 @@ h3{ font-weight: 400; }
       margin-bottom:8px;
     }
 
-    .sub{color:var(--muted);max-width:65ch}
+    .sub{
+  max-width: 65ch;
+  margin: 0 0 18px 0;
+  padding-left: 12px;
+
+  border-left: 4px solid var(--accent);
+
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+
+  color: var(--muted);
+}
 
     .aboutImg{
   background: url("assets/erin.jpg") center/cover no-repeat;
@@ -226,32 +238,59 @@ h3{ font-weight: 400; }
     margin: 0 0 14px 0;
     }
 
-    .bullets{
-      list-style:none;
-      padding:0;
-      margin-top:16px;
-      display:grid;
-      gap:25px;
-    }
+    /* Sleek "bubble" offerings */
+.bullets{
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  gap: 12px;
 
-    .bullets li{
-      display:flex;
-      gap:10px;
-      padding:12px;
-      border-radius:8px;
-      background:var(--surface2);
-      border:1px solid var(--line);
-      color:var(--muted);
-      font-weight:500;
-    }
+  /* Row when space allows */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 
-    .check{
-      width:18px;height:18px;
-      border-radius:6px;
-      background:rgba(147,205,164,.6);
-      flex:0 0 18px;
-      margin-top:2px;
-    }
+.bullets li{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  padding: 14px 16px;
+  border-radius: 999px;
+
+  /* translucent green bubble */
+  background: rgba(147, 205, 164, 0.18);
+  border: 1px solid rgba(147, 205, 164, 0.28);
+
+  /* sleek/glass vibe */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  color: #1f2d27;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+/* Make the check match the bubble vibe */
+.check{
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: rgba(147, 205, 164, 0.55);
+  border: 1px solid rgba(147, 205, 164, 0.45);
+  flex: 0 0 18px;
+  margin-top: 2px;
+}
+
+/* Responsive: stack vertically on smaller screens */
+@media (max-width: 900px){
+  .bullets{
+    grid-template-columns: 1fr;
+  }
+  .bullets li{
+    border-radius: 18px; /* slightly less pill on mobile looks nicer */
+  }
+}
 
     /* Services */
     .serviceGrid{
