@@ -656,7 +656,6 @@
   .menuBtn{
     display:flex;
   }
-}
 /* ===== Bottom Waves Background (Footer) ===== */
 footer{
   position: relative;
@@ -665,6 +664,7 @@ footer{
 
   /* make room for the waves */
   padding: 32px 0 190px 0;
+
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 14px;
@@ -678,7 +678,9 @@ footer::before{
   bottom:0;
 
   height: 190px;
-  background: url("./assets/Waves.png") bottom center / cover no-repeat;
+
+  /* ✅ UPDATED IMAGE NAME */
+  background: url("./assets/wave.png") bottom center / cover no-repeat;
 
   opacity: 1;
   pointer-events: none;
@@ -689,6 +691,7 @@ footer .container{
   position: relative;
   z-index: 1;
 }
+
     </style>
 </head>
 
@@ -786,8 +789,6 @@ footer .container{
                         meaningful progress together.
                     </p>
 
-                    <img src="./assets/Waves.png" style="max-width:300px; border:2px solid red;">
-                    
                     <ul class="bullets">
                         <li><span class="check"></span>Clear, actionable strategy</li>
                         <li><span class="check"></span>Hands-on operational support</li>
