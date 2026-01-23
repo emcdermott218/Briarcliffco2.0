@@ -935,10 +935,83 @@
   // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Testimonials carousel
-  (function(){
-    // ... your existing testimonials JS unchanged ...
-  })();
+     // Testimonials carousel (with swipe on mobile)
+(function(){
+  const slides = Array.from(document.querySelectorAll(".tSlide"));
+  const prevBtn = document.getElementById("tPrev");
+  const nextBtn = document.getElementById("tNext");
+  const dotsWrap = document.getElementById("tDots");
+  const card = document.getElementById("tCard");
+
+  if(!slides.length || !prevBtn || !nextBtn || !dotsWrap || !card) return;
+
+  let index = 0;
+
+  // build dots
+  dotsWrap.innerHTML = "";
+  slides.forEach((_, i) => {
+    const d = document.createElement("button");
+    d.type = "button";
+    d.className = "tDot";
+    d.setAttribute("aria-label", `Go to testimonial ${i+1}`);
+    d.addEventListener("click", () => goTo(i));
+    dotsWrap.appendChild(d);
+  });
+
+  const dots = Array.from(dotsWrap.querySelectorAll(".tDot"));
+
+  function render(){
+    slides.forEach((s, i) => s.classList.toggle("is-active", i === index));
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+  }
+
+  function goTo(i){
+    index = (i + slides.length) % slides.length;
+    render();
+  }
+
+  prevBtn.addEventListener("click", () => goTo(index - 1));
+  nextBtn.addEventListener("click", () => goTo(index + 1));
+
+  // auto-rotate (same timing you had)
+  let timer = setInterval(() => goTo(index + 1), 13000);
+
+  // pause on hover (desktop)
+  card.addEventListener("mouseenter", () => clearInterval(timer));
+  card.addEventListener("mouseleave", () => {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(index + 1), 13000);
+  });
+
+  // ✅ Swipe support for mobile
+  let startX = 0;
+  let startY = 0;
+
+  card.addEventListener("touchstart", (e) => {
+    const t = e.touches[0];
+    startX = t.clientX;
+    startY = t.clientY;
+  }, { passive: true });
+
+  card.addEventListener("touchend", (e) => {
+    const t = e.changedTouches[0];
+    const endX = t.clientX;
+    const endY = t.clientY;
+
+    const dx = endX - startX;
+    const dy = endY - startY;
+
+    // Let normal page scroll work
+    if (Math.abs(dy) > Math.abs(dx)) return;
+
+    // threshold
+    if (dx < -45) goTo(index + 1); // swipe left -> next
+    if (dx > 45) goTo(index - 1);  // swipe right -> prev
+  }, { passive: true });
+
+  render();
+})();
+
 </script>
 </body>
 </html>
