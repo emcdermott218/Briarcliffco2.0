@@ -503,6 +503,33 @@
             color: var(--muted);
             font-size: 14px;
         }
+/* ===== Waves behind the Contact section ===== */
+#contact{
+  position: relative;
+  overflow: hidden;              /* keeps waves from spilling out */
+  padding-bottom: 220px;         /* makes space so waves are visible */
+}
+
+#contact::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+
+  height: 220px;                 /* how tall the waves appear */
+  background: url("assets/wave.png") bottom center / cover no-repeat;
+
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ensure your contact content stays above the waves */
+#contact .container{
+  position: relative;
+  z-index: 1;
+}
 
         /* Testimonials */
         .tWrap {
@@ -856,7 +883,6 @@
             </div>
         </div>
     </section>
-
     <section id="contact">
         <div class="container">
             <h2>Contact</h2>
