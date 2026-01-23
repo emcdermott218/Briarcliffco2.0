@@ -213,7 +213,6 @@
             text-align: center;
             margin-top: 6px;
         }
-        }
 
         /* Header */
         header {
@@ -658,39 +657,17 @@
     display:flex;
   }
 }
-footer{
-  position: relative;
-  overflow: hidden;
-  background: transparent;
-}
-
-footer::before{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height: 300px;
-
-  /* ✅ your exact file name */
-  background: url("assets/Waves.png") bottom center / cover no-repeat;
-
-  opacity: 0.5;
-  pointer-events: none;
-  z-index: 0;
-}
-
-footer .container{
-  position: relative;
-  z-index: 1;
-}
+/* ===== Bottom Waves Background (Footer) ===== */
 footer{
   position: relative;
   overflow: hidden;
   background: transparent;
 
-  /* important: make room so you can actually see the waves */
-  padding: 32px 0 170px 0;
+  /* make room for the waves */
+  padding: 32px 0 190px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
 }
 
 footer::before{
@@ -700,9 +677,8 @@ footer::before{
   right:0;
   bottom:0;
 
-  height: 180px;
-
-  background: url("assets/Waves.png") bottom center / cover no-repeat;
+  height: 190px;
+  background: url("./assets/Waves.png") bottom center / cover no-repeat;
 
   opacity: 1;
   pointer-events: none;
