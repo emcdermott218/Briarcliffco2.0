@@ -684,7 +684,35 @@ footer .container{
   position: relative;
   z-index: 1;
 }
+footer{
+  position: relative;
+  overflow: hidden;
+  background: transparent;
 
+  /* important: make room so you can actually see the waves */
+  padding: 32px 0 170px 0;
+}
+
+footer::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+
+  height: 180px;
+
+  background: url("assets/Waves.png") bottom center / cover no-repeat;
+
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+footer .container{
+  position: relative;
+  z-index: 1;
+}
     </style>
 </head>
 
