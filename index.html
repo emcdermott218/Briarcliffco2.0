@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+  
   <style>
     :root{
       /* Layout */
@@ -28,7 +28,6 @@
 
       /* Accents */
       --accent:#93cda4;
-;
 
       /* Borders & shadows */
       --line:rgba(31,45,39,.12);
@@ -188,31 +187,19 @@ h3{ font-weight: 400; }
       margin-bottom:8px;
     }
 
-    .sub{
+   .sub{
   max-width: 65ch;
   margin: 0 0 18px 0;
   padding-left: 12px;
-
   border-left: 4px solid var(--accent);
-
   font-size: 15px;
   font-weight: 650;
   letter-spacing: 0.01em;
-
   color: var(--muted);
 }
 
-    .aboutImg{
-  background: url("assets/erin.jpg") center/cover no-repeat;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  filter: brightness(1.05) contrast(1.05) saturate(1.05);
-
-  width: 240px;          /* controls image size */
-  height: 320px;
-  float: left;
-  margin: 0 22px 14px 0; /* spacing between image + text */
-  .aboutFlow{
+/* ABOUT: image left, text wraps right */
+.aboutFlow{
   margin-top: 12px;
 }
 
@@ -223,22 +210,24 @@ h3{ font-weight: 400; }
   clear:both;
 }
 
+.aboutImg{
+  background: url("assets/erin.jpg") center/cover no-repeat;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  filter: brightness(1.05) contrast(1.05) saturate(1.05);
+
+  width: 240px;
+  height: 320px;
+  float: left;
+  margin: 0 22px 14px 0;
+}
+
 .aboutCopy p{
   margin-top: 0;
   color: var(--muted);
 }
 
-/* mobile: stack */
-@media (max-width: 900px){
-  .aboutImg{
-    float: none;
-    width: 100%;
-    max-width: 360px;
-    height: 360px;
-    margin: 0 0 14px 0;
-    }
-
-    /* Sleek "bubble" offerings */
+/* Sleek "bubble" offerings */
 .bullets{
   list-style: none;
   padding: 0;
@@ -258,11 +247,9 @@ h3{ font-weight: 400; }
   padding: 14px 16px;
   border-radius: 999px;
 
-  /* translucent green bubble */
   background: rgba(147, 205, 164, 0.18);
   border: 1px solid rgba(147, 205, 164, 0.28);
 
-  /* sleek/glass vibe */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 
@@ -271,7 +258,6 @@ h3{ font-weight: 400; }
   letter-spacing: 0.01em;
 }
 
-/* Make the check match the bubble vibe */
 .check{
   width: 18px;
   height: 18px;
@@ -280,16 +266,6 @@ h3{ font-weight: 400; }
   border: 1px solid rgba(147, 205, 164, 0.45);
   flex: 0 0 18px;
   margin-top: 2px;
-}
-
-/* Responsive: stack vertically on smaller screens */
-@media (max-width: 900px){
-  .bullets{
-    grid-template-columns: 1fr;
-  }
-  .bullets li{
-    border-radius: 18px; /* slightly less pill on mobile looks nicer */
-  }
 }
 
     /* Services */
@@ -346,10 +322,25 @@ h3{ font-weight: 400; }
     }
 
     /* Responsive */
-    @media(max-width:900px){
-      .grid,.aboutWrap,.serviceGrid,.contactGrid{
-        grid-template-columns:1fr;
-      }
+   @media (max-width: 900px){
+  .grid, .serviceGrid, .contactGrid{
+    grid-template-columns: 1fr;
+  }
+
+  .aboutImg{
+    float: none;
+    width: 100%;
+    max-width: 360px;
+    height: 360px;
+    margin: 0 0 14px 0;
+  }
+
+  .bullets{
+    grid-template-columns: 1fr;
+  }
+
+  .bullets li{
+    border-radius: 18px;}
     }
   </style>
 </head>
@@ -431,6 +422,8 @@ h3{ font-weight: 400; }
     </ul>
   </div>
 </div>
+</div>
+</section>
 
 <section id="services">
   <div class="container">
