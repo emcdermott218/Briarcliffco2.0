@@ -701,7 +701,7 @@
 }
 
 .caseInner{
-    padding:0 28px 28px;
+    padding:0 28px 40px;
 }
 
 .caseLayout{
@@ -730,7 +730,14 @@
     margin:28px 0;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:18px;
+    gap:20px;
+}
+
+.caseMetrics{
+    margin:28px 0;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
 }
 
 .metric{
@@ -738,18 +745,32 @@
     background:var(--surface2);
     border-radius:16px;
     padding:22px 14px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 }
+
 .metric.featured{
-    background: rgba(147,205,164,.35);
-    border: 1px solid rgba(147,205,164,.6);
+    background:rgba(147,205,164,.35);
+    border:1px solid rgba(147,205,164,.6);
 }
+
 .metricNumber{
+    width:100%;
+    text-align:center;
     font-family:'Fraunces', serif;
     font-size:34px;
     color:var(--text);
 }
-
+.metricNumber.long{
+    font-size:24px;
+    white-space:nowrap;
+}
 .metricLabel{
+    width:100%;
+    text-align:center;
     color:var(--muted);
     font-size:14px;
     margin-top:8px;
@@ -758,16 +779,19 @@
 .caseTakeaway{
     background:rgba(147,205,164,.12);
     border-left:5px solid var(--accent);
-    padding:20px;
+    padding:40px;
     border-radius:14px;
-    margin-top:20px;
+    margin-top:10px;
+    margin-left:18px;
 }
 
 .caseServices{
     display:flex;
     flex-wrap:wrap;
     gap:10px;
-    margin-top:22px;
+    margin-top:28px;
+    margin-left:12px;      /* NEW */
+    margin-bottom:20px;    /* NEW */
 }
 
 .caseServices span{
